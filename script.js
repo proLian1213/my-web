@@ -1,6 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-links a');
     const sections = document.querySelectorAll('.section');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navList = document.querySelector('.nav-links');
+
+    // Mobile Menu Toggle
+    mobileMenu.addEventListener('click', () => {
+        navList.classList.toggle('active');
+        mobileMenu.classList.toggle('is-active');
+    });
 
     // Navigation functionality
     navLinks.forEach(link => {
@@ -11,6 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.forEach(l => l.classList.remove('active'));
             // Add active class to clicked link
             this.classList.add('active');
+
+            // Hide mobile menu if open
+            if (navList.classList.contains('active')) {
+                navList.classList.remove('active');
+                mobileMenu.classList.remove('is-active');
+            }
 
             // Get target section id
             const targetId = this.getAttribute('href').substring(1);
