@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julián | Portfolio</title>
+    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-image"></div>
+    <div class="overlay"></div>
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Inicio</a></li>
+            <li><a href="#projects">Mis Proyectos</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <!-- Home Section -->
+        <section id="home" class="section active-section">
+            <div class="hero-content">
+                <div class="profile-container">
+                    <img src="profile.jpg" alt="Foto de perfil de Julián" class="profile-photo">
+                    <div class="glow-ring"></div>
+                </div>
+                <h1 class="glitch" data-text="Julián">Julián</h1>
+                <p class="subtitle">Web Solutions & AI Specialist | Full Stack Developer</p>
+                
+                <div class="services-grid">
+                    <div class="glass-card service-card">
+                        <div class="icon">💻</div>
+                        <h3>Desarrollo Full Stack a Medida</h3>
+                        <p>Creación de aplicaciones web completas desde cero, diseñadas específicamente para cubrir las necesidades de tu negocio.</p>
+                        <div class="extra-info">
+                            <p>Desarrollo arquitecturas robustas y escalables con tecnologías modernas (Node.js, React, Python). Me encargo de todo el ciclo de vida del software, desde el diseño de la API hasta la implementación de una interfaz de usuario atractiva y responsiva.</p>
+                        </div>
+                        <a href="#projects" class="btn-outline info-btn">Más info</a>
+                    </div>
+                    <div class="glass-card service-card">
+                        <div class="icon">🧠</div>
+                        <h3>Integración de IA y Automatización</h3>
+                        <p>Conecto tu plataforma con modelos de Inteligencia Artificial para automatizar tareas, analizar datos o mejorar la experiencia de tus usuarios.</p>
+                        <div class="extra-info">
+                            <p>Desarrollo flujos de trabajo inteligentes, integrando agentes de IA basados en Modelos de Lenguaje Grandes (LLMs) y procesamiento de lenguaje natural (NLP) que agilizan procesos, reducen costes y potencian la innovación en tu producto.</p>
+                        </div>
+                        <a href="#projects" class="btn-outline info-btn">Más info</a>
+                    </div>
+                    <div class="glass-card service-card">
+                        <div class="icon">🗄️</div>
+                        <h3>Optimización de BD y Servidores</h3>
+                        <p>Diseño, migración y puesta a punto de bases de datos en MySQL y despliegues seguros en entornos Linux.</p>
+                        <div class="extra-info">
+                            <p>Auditoría de rendimiento, tuning de consultas SQL, configuración de servidores de alta disponibilidad y políticas de respaldo (backups) automáticos. Aseguro que tu infraestructura soporte el tráfico de forma rápida y confiable.</p>
+                        </div>
+                        <a href="#projects" class="btn-outline info-btn">Más info</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Profile Section -->
+        <section id="projects" class="section">
+            <h2 class="section-title">Perfil Técnico & Habilidades</h2>
+            <div class="services-grid">
+                <div class="glass-card service-card">
+                    <div class="icon">🐍</div>
+                    <h3>Desarrollo Backend</h3>
+                    <p>Amplia experiencia en Python, aplicando Principios SOLID para garantizar un código limpio, escalable y fácil de mantener.</p>
+                </div>
+                <div class="glass-card service-card">
+                    <div class="icon">🗄️</div>
+                    <h3>Sistemas y Bases de Datos</h3>
+                    <p>Manejo fluido de entornos Linux y gestión/optimización de bases de datos relacionales con MySQL.</p>
+                </div>
+                <div class="glass-card service-card">
+                    <div class="icon">🐙</div>
+                    <h3>Colaboración</h3>
+                    <p>Control de versiones y flujo de trabajo en equipo mediante GitHub.</p>
+                </div>
+                <div class="glass-card service-card">
+                    <div class="icon">🚀</div>
+                    <h3>Mentalidad de Crecimiento</h3>
+                    <p>En constante aprendizaje y evolución para dominar las tecnologías emergentes del sector asi mismo como la parte del Frontend.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2 class="section-title">Contacto</h2>
+            <div class="glass-card contact-card">
+                <div class="icon">📧</div>
+                <p>¿Tienes un proyecto en mente o quieres saber más sobre mis servicios? No dudes en contactarme.</p>
+                <a href="mailto:jcabellan@hotmail.com" class="btn-outline">jcabellan@hotmail.com</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js?v=2"></script>
+</body>
+</html>
