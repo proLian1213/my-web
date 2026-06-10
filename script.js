@@ -86,4 +86,66 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
         });
     });
+
+    // Portfolio Modal Logic
+    const modal = document.getElementById('portfolio-modal');
+    const closeBtn = document.querySelector('.close-modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalIframe = document.getElementById('modal-iframe');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+    
+    // Aquí puedes definir los datos de tus proyectos
+    const projectData = {
+        '1': {
+            url: 'projects/viajetour/index.html',
+            title: 'Agencia de Viajes "ViajeTour"',
+            description: 'Desarrollo de una web interactiva para una agencia de viajes. El proyecto incluye menús desplegables tipo acordeón, animaciones 3D, un diseño moderno y responsive, y una paleta de colores vibrante.'
+        }
+        // Puedes añadir '2', '3', etc.
+    };
+
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    projectCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const projectId = card.getAttribute('data-project');
+            const data = projectData[projectId];
+            
+            if(data) {
+                if (data.url) {
+                    modalIframe.src = data.url;
+                    modalIframe.style.display = 'block';
+                    modalImage.style.display = 'none';
+                    modalImage.src = '';
+                } else if (data.image) {
+                    modalImage.src = data.image;
+                    modalImage.style.display = 'block';
+                    modalIframe.style.display = 'none';
+                    modalIframe.src = '';
+                }
+
+                modalTitle.textContent = data.title;
+                modalDescription.textContent = data.description;
+                
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden'; // Prevenir scroll del body
+            }
+        });
+    });
+
+    closeBtn.addEventListener('click', () => {
+        modal.classList.remove('show');
+        document.body.style.overflow = ''; // Restaurar scroll
+        modalIframe.src = ''; // Limpiar iframe al cerrar
+    });
+
+    // Cerrar modal al hacer clic fuera del contenido
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+            modalIframe.src = ''; // Limpiar iframe al cerrar
+        }
+    });
 });
