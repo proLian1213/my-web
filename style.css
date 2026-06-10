@@ -682,7 +682,7 @@ h1 {
     position: absolute;
     top: 15px;
     right: 25px;
-    color: var(--cyan);
+    color: #000000;
     font-size: 2.5rem;
     font-weight: bold;
     cursor: pointer;
@@ -691,8 +691,8 @@ h1 {
 }
 
 .close-modal:hover {
-    color: var(--bright-white);
-    text-shadow: 0 0 15px var(--neon-blue);
+    color: #333333;
+    text-shadow: none;
 }
 
 #modal-image {
