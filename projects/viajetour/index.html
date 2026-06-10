@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViajeTour - Descubre tu próxima aventura</title>
+    <meta name="description" content="Agencia de viajes joven y dinámica. Descubre destinos increíbles con ViajeTour.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- BoxIcons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="logo">
+            <i class='bx bxs-paper-plane'></i> ViajeTour
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#destinos">Destinos</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto" class="btn-primary">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <i class='bx bx-menu'></i>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-text-container reveal">
+            <h1>Eleva tus <span>Sueños</span></h1>
+            <p>Descubre paisajes majestuosos y aventuras inolvidables. Tu próximo viaje comienza aquí.</p>
+            <a href="#destinos" class="btn-secondary">Explorar Ahora <i class='bx bx-right-arrow-alt'></i></a>
+        </div>
+        <div class="hero-banner-wrapper reveal">
+            <div class="hero-banner">
+                <img src="assets/viajetour_balloon_cover.png" alt="Globo aerostático volando sobre un paisaje noruego" class="floating-banner-image">
+            </div>
+        </div>
+        <div class="clouds"></div>
+    </section>
+
+    <!-- Destinos Section -->
+    <section id="destinos" class="destinations">
+        <div class="section-header reveal">
+            <h2>Destinos Populares</h2>
+            <p>Lugares mágicos con colores y vibras inolvidables.</p>
+        </div>
+        
+        <div class="cards-container">
+            <!-- Card 1 -->
+            <div class="card reveal">
+                <div class="card-img">
+                    <img src="assets/fiordos.png" alt="Fiordos Noruegos" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="card-body">
+                    <h3>Fiordos Noruegos</h3>
+                    <p>Navega entre montañas majestuosas y descubre cascadas de ensueño.</p>
+                    <a href="javascript:void(0)" class="card-btn expand-btn">Ver más</a>
+                    <div class="card-details">
+                        <ul>
+                            <li><i class='bx bx-check'></i> Viaje de 7 días donde descubrirás...</li>
+                            <li><i class='bx bx-check'></i> Viaje en barco de 4 días visitando los fiordos noruegos</li>
+                            <li><i class='bx bx-check'></i> Experiencia en globo aerostático</li>
+                            <li><i class='bx bx-check'></i> Mini aventuras como paseo a caballo, viaje en quads y tirolinas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="card reveal">
+                <div class="card-img">
+                    <img src="assets/isla.png" alt="Islas Paradisíacas" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="card-body">
+                    <h3>Islas Paradisíacas</h3>
+                    <p>Relájate en playas de arena blanca y aguas turquesas y cristalinas.</p>
+                    <a href="javascript:void(0)" class="card-btn expand-btn" data-open="Ver menos" data-close="Ver más">Ver más</a>
+                    <div class="card-details">
+                        <div style="margin-left: 10px; margin-top: 10px;">
+                            <a href="javascript:void(0)" class="card-btn expand-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem; background-color: var(--secondary);" data-open="Cerrar opciones" data-close="Elige tu destino">Elige tu destino</a>
+                            <div class="card-details">
+                                <div style="margin-top: 10px;">
+                                    <a href="javascript:void(0)" class="expand-btn" style="display:block; margin: 10px 0; color: var(--primary); font-weight: 600; text-decoration: none;" data-open="<i class='bx bx-chevron-down'></i> Tailandia" data-close="<i class='bx bx-chevron-right'></i> Tailandia"><i class='bx bx-chevron-right'></i> Tailandia</a>
+                                    <div class="card-details">
+                                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-left: 20px; line-height: 1.4;"><i class='bx bx-check'></i> Viaje de 10 días visitando los mejores lugares y playas de la zona</p>
+                                    </div>
+
+                                    <a href="javascript:void(0)" class="expand-btn" style="display:block; margin: 10px 0; color: var(--primary); font-weight: 600; text-decoration: none;" data-open="<i class='bx bx-chevron-down'></i> Sri Lanka" data-close="<i class='bx bx-chevron-right'></i> Sri Lanka"><i class='bx bx-chevron-right'></i> Sri Lanka</a>
+                                    <div class="card-details">
+                                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-left: 20px; line-height: 1.4;"><i class='bx bx-check'></i> Viaje de 10 días visitando los mejores lugares y playas de la zona</p>
+                                    </div>
+
+                                    <a href="javascript:void(0)" class="expand-btn" style="display:block; margin: 10px 0; color: var(--primary); font-weight: 600; text-decoration: none;" data-open="<i class='bx bx-chevron-down'></i> Ibiza y Formentera" data-close="<i class='bx bx-chevron-right'></i> Ibiza y Formentera"><i class='bx bx-chevron-right'></i> Ibiza y Formentera</a>
+                                    <div class="card-details">
+                                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-left: 20px; line-height: 1.4;"><i class='bx bx-check'></i> Viaje de 10 días visitando los mejores lugares y playas de la zona</p>
+                                    </div>
+
+                                    <a href="javascript:void(0)" class="expand-btn" style="display:block; margin: 10px 0; color: var(--primary); font-weight: 600; text-decoration: none;" data-open="<i class='bx bx-chevron-down'></i> Maldivas" data-close="<i class='bx bx-chevron-right'></i> Maldivas"><i class='bx bx-chevron-right'></i> Maldivas</a>
+                                    <div class="card-details">
+                                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-left: 20px; line-height: 1.4;"><i class='bx bx-check'></i> Viaje de 10 días visitando los mejores lugares y playas de la zona</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="card reveal">
+                <div class="card-img">
+                    <img src="assets/atardecer.png" alt="Atardeceres Mágicos" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="card-body">
+                    <h3>Atardeceres Mágicos</h3>
+                    <p>Disfruta de las mejores puestas de sol en ciudades llenas de vida.</p>
+                    <a href="javascript:void(0)" class="card-btn expand-btn" data-open="Ver menos" data-close="Ver más">Ver más</a>
+                    <div class="card-details">
+                        <div style="margin-left: 10px; margin-top: 10px;">
+                            <a href="javascript:void(0)" class="card-btn expand-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem; background-color: var(--secondary);" data-open="Cerrar opciones" data-close="Elige tu destino">Elige tu destino</a>
+                            <div class="card-details">
+                                <div style="margin-top: 10px;">
+                                    
+                                    <!-- España -->
+                                    <a href="javascript:void(0)" class="expand-btn" style="display:block; margin: 10px 0; color: var(--primary); font-weight: 600; text-decoration: none;" data-open="<i class='bx bx-chevron-down'></i> España" data-close="<i class='bx bx-chevron-right'></i> España"><i class='bx bx-chevron-right'></i> España</a>
+                                    <div class="card-details">
+                                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-left: 20px; line-height: 1.4;"><i class='bx bx-info-circle'></i> Viaje de 5 días visitando los mejores lugares de cada ciudad.</p>
+                                        <ul style="margin-left: 20px; margin-top: 5px;">
+                                            <li><i class='bx bx-check'></i> Madrid</li>
+                                            <li><i class='bx bx-check'></i> Barcelona</li>
+                                            <li><i class='bx bx-check'></i> Sevilla</li>
+                                            <li><i class='bx bx-check'></i> Córdoba</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Francia -->
+                                    <a href="javascript:void(0)" class="expand-btn" style="display:block; margin: 10px 0; color: var(--primary); font-weight: 600; text-decoration: none;" data-open="<i class='bx bx-chevron-down'></i> Francia" data-close="<i class='bx bx-chevron-right'></i> Francia"><i class='bx bx-chevron-right'></i> Francia</a>
+                                    <div class="card-details">
+                                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-left: 20px; line-height: 1.4;"><i class='bx bx-info-circle'></i> Viaje de 5 días visitando los mejores lugares de cada ciudad.</p>
+                                        <ul style="margin-left: 20px; margin-top: 5px;">
+                                            <li><i class='bx bx-check'></i> París</li>
+                                            <li><i class='bx bx-check'></i> Burdeos</li>
+                                            <li><i class='bx bx-check'></i> Lyon</li>
+                                            <li><i class='bx bx-check'></i> Marsella</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Italia -->
+                                    <a href="javascript:void(0)" class="expand-btn" style="display:block; margin: 10px 0; color: var(--primary); font-weight: 600; text-decoration: none;" data-open="<i class='bx bx-chevron-down'></i> Italia" data-close="<i class='bx bx-chevron-right'></i> Italia"><i class='bx bx-chevron-right'></i> Italia</a>
+                                    <div class="card-details">
+                                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-left: 20px; line-height: 1.4;"><i class='bx bx-info-circle'></i> Viaje de 5 días visitando los mejores lugares de cada ciudad.</p>
+                                        <ul style="margin-left: 20px; margin-top: 5px;">
+                                            <li><i class='bx bx-check'></i> Roma</li>
+                                            <li><i class='bx bx-check'></i> Milán</li>
+                                            <li><i class='bx bx-check'></i> Venecia</li>
+                                            <li><i class='bx bx-check'></i> Palermo</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="card reveal">
+                <div class="card-img">
+                    <img src="assets/selva.png" alt="Aventura Salvaje" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="card-body">
+                    <h3>Aventura Salvaje</h3>
+                    <p>Explora selvas tropicales y descubre una fauna increíble y vibrante.</p>
+                    <a href="javascript:void(0)" class="card-btn expand-btn" data-open="Ver menos" data-close="Ver más">Ver más</a>
+                    <div class="card-details">
+                        <div style="margin-left: 10px; margin-top: 10px;">
+                            <a href="javascript:void(0)" class="card-btn expand-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem; background-color: var(--secondary);" data-open="Cerrar opciones" data-close="Elige tu destino">Elige tu destino</a>
+                            <div class="card-details">
+                                <div style="margin-top: 10px;">
+                                    
+                                    <!-- Costa Rica -->
+                                    <a href="javascript:void(0)" class="expand-btn" style="display:block; margin: 10px 0; color: var(--primary); font-weight: 600; text-decoration: none;" data-open="<i class='bx bx-chevron-down'></i> Costa Rica" data-close="<i class='bx bx-chevron-right'></i> Costa Rica"><i class='bx bx-chevron-right'></i> Costa Rica</a>
+                                    <div class="card-details">
+                                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-left: 20px; line-height: 1.4;"><i class='bx bx-info-circle'></i> Viaje de 10 días disfrutando de los mejores paisajes, como selvas tropicales, cascadas, ríos, etc.</p>
+                                    </div>
+
+                                    <!-- Panamá -->
+                                    <a href="javascript:void(0)" class="expand-btn" style="display:block; margin: 10px 0; color: var(--primary); font-weight: 600; text-decoration: none;" data-open="<i class='bx bx-chevron-down'></i> Panamá" data-close="<i class='bx bx-chevron-right'></i> Panamá"><i class='bx bx-chevron-right'></i> Panamá</a>
+                                    <div class="card-details">
+                                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-left: 20px; line-height: 1.4;"><i class='bx bx-info-circle'></i> Viaje de 10 días disfrutando de los mejores paisajes, como selvas tropicales, cascadas, ríos, etc.</p>
+                                    </div>
+
+                                    <!-- Belice -->
+                                    <a href="javascript:void(0)" class="expand-btn" style="display:block; margin: 10px 0; color: var(--primary); font-weight: 600; text-decoration: none;" data-open="<i class='bx bx-chevron-down'></i> Belice" data-close="<i class='bx bx-chevron-right'></i> Belice"><i class='bx bx-chevron-right'></i> Belice</a>
+                                    <div class="card-details">
+                                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-left: 20px; line-height: 1.4;"><i class='bx bx-info-circle'></i> Viaje de 10 días disfrutando de los mejores paisajes, como selvas tropicales, cascadas, ríos, etc.</p>
+                                    </div>
+
+                                    <!-- Brasil -->
+                                    <a href="javascript:void(0)" class="expand-btn" style="display:block; margin: 10px 0; color: var(--primary); font-weight: 600; text-decoration: none;" data-open="<i class='bx bx-chevron-down'></i> Brasil" data-close="<i class='bx bx-chevron-right'></i> Brasil"><i class='bx bx-chevron-right'></i> Brasil</a>
+                                    <div class="card-details">
+                                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-left: 20px; line-height: 1.4;"><i class='bx bx-info-circle'></i> Viaje de 10 días disfrutando de los mejores paisajes, como selvas tropicales, cascadas, ríos, etc.</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nosotros Section -->
+    <section id="nosotros" class="about">
+        <div class="about-container reveal">
+            <div class="about-text">
+                <h2>¿Por qué <span>ViajeTour</span>?</h2>
+                <p>Somos una agencia de viajes joven, fresca y dinámica. Rompemos con lo tradicional para ofrecerte experiencias únicas, llenas de color y aventura. Creemos que cada viaje es una historia por contar.</p>
+                <ul class="features">
+                    <li><i class='bx bx-check-circle'></i> Asesoramiento personalizado 24/7</li>
+                    <li><i class='bx bx-check-circle'></i> Paquetes flexibles a tu medida</li>
+                    <li><i class='bx bx-check-circle'></i> Experiencias 100% instagrameables</li>
+                </ul>
+            </div>
+            <div class="about-stats">
+                <div class="stat-box">
+                    <h3>+500</h3>
+                    <p>Viajeros Felices</p>
+                </div>
+                <div class="stat-box" style="background: var(--pastel-blue);">
+                    <h3>+50</h3>
+                    <p>Destinos</p>
+                </div>
+                <div class="stat-box" style="background: var(--pastel-mint);">
+                    <h3>4.9/5</h3>
+                    <p>Valoración</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3><i class='bx bxs-paper-plane'></i> ViajeTour</h3>
+                <p>Tu aventura comienza hoy.</p>
+            </div>
+            <div class="footer-socials">
+                <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                <a href="#"><i class='bx bxl-tiktok'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ViajeTour. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
