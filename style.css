@@ -725,9 +725,15 @@ h1 {
         max-width: 350px;
     }
     
+    .project-thumb {
+        filter: brightness(0.6);
+    }
+
     .project-overlay-text {
         font-size: 0.8rem;
         padding: 0.5rem 0.8rem;
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
     }
 
     .modal {
