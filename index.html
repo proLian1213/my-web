@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julián | Portfolio</title>
-    <link rel="stylesheet" href="style.css?v=3">
+    <meta name="description" content="Portfolio y servicios de desarrollo web, Inteligencia Artificial y backend. Construimos soluciones a medida para tu negocio.">
+    <meta name="keywords" content="desarrollo web, inteligencia artificial, backend, full stack developer, automatización">
+    <title>Julián | Portfolio & Web Solutions</title>
+    <link rel="stylesheet" href="style.css?v=4">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -37,6 +39,7 @@
                 </div>
                 <h1 class="glitch" data-text="Julián">Julián</h1>
                 <p class="subtitle">Web Solutions & AI Specialist | Full Stack Developer</p>
+                <a href="#contact" class="btn-outline cta-main">Hablemos de tu Proyecto</a>
             </div>
         </section>
 
@@ -100,13 +103,14 @@
                     <p>Haz clic para navegar por el sitio web interactivo de la agencia de viajes en pantalla completa.</p>
                 </div>
 
-                <!-- Proyecto 2 (Placeholder) -->
-                <div class="glass-card service-card project-card placeholder-card">
-                    <div class="project-image-container placeholder-image">
-                        <span>Próximamente...</span>
+                <!-- Proyecto 2 -->
+                <div class="glass-card service-card project-card" data-project="2">
+                    <div class="project-image-container placeholder-image" style="background: linear-gradient(135deg, #ff4b2b, #ff416c);">
+                        <span>GasGas Kiosk</span>
+                        <div class="project-overlay-text">Ver Proyecto</div>
                     </div>
-                    <h3>Próximo Proyecto</h3>
-                    <p>En desarrollo. Vuelve pronto para descubrir nuevas actualizaciones.</p>
+                    <h3>GasGas Payment Kiosk</h3>
+                    <p>Haz clic para explorar la interfaz interactiva del kiosco de pagos para estaciones de servicio GasGas.</p>
                 </div>
 
                 <!-- Proyecto 3 (Placeholder) -->
@@ -156,6 +160,7 @@
                 <iframe id="modal-iframe" src="" style="display: none;"></iframe>
                 <h2 id="modal-title">Título del Proyecto</h2>
                 <p id="modal-description">Descripción detallada del trabajo realizado. Aquí podrás explicar las tecnologías que usaste, el problema que resolviste y los resultados obtenidos.</p>
+                <a id="modal-external-link" href="#" target="_blank" class="btn-outline" style="display: none; margin-top: 1.5rem; text-align: center; width: 100%;">Abrir en pantalla completa</a>
             </div>
         </div>
 
@@ -164,11 +169,26 @@
             <div class="glass-card contact-card">
                 <div class="icon">📧</div>
                 <p>¿Tienes un proyecto en mente o quieres saber más sobre mis servicios? No dudes en contactarme.</p>
-                <a href="mailto:jcabellan@hotmail.com" class="btn-outline">jcabellan@hotmail.com</a>
+                
+                <form class="contact-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Mensaje enviado exitosamente. ¡Me pondré en contacto contigo pronto!'); this.reset();">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Tu Nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Tu Correo Electrónico" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Tu Mensaje" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-outline submit-btn">Enviar Mensaje</button>
+                </form>
+
+                <div class="contact-divider">o escríbeme a</div>
+                <a href="mailto:jcabellan@hotmail.com" class="email-link">jcabellan@hotmail.com</a>
             </div>
         </section>
     </main>
 
-    <script src="script.js?v=3"></script>
+    <script src="script.js?v=5"></script>
 </body>
 </html>

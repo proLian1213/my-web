@@ -1,0 +1,724 @@
+:root {
+    --primary-color: #00ff88;
+    --primary-glow: rgba(0, 255, 136, 0.6);
+    --secondary-color: #1a1a2e;
+    --bg-color: #0f0f1a;
+    --text-color: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --warning-color: #ff3366;
+    --diesel-color: #ffaa00;
+    --gasolina-color: #00eeff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    user-select: none;
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image: radial-gradient(circle at 50% 0%, #1a2a3a 0%, var(--bg-color) 70%);
+    color: var(--text-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1024px;
+    height: 100vh;
+    max-height: 768px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3rem;
+    z-index: 10;
+}
+
+/* AI Voice Visualizer */
+.ai-voice-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 40px;
+    opacity: 0.2;
+    transition: opacity 0.5s ease;
+}
+
+.ai-voice-indicator.speaking {
+    opacity: 1;
+}
+
+.ai-voice-indicator .wave {
+    width: 6px;
+    height: 10px;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    box-shadow: 0 0 10px var(--primary-glow);
+    transition: height 0.2s ease;
+}
+
+.ai-voice-indicator.speaking .wave {
+    animation: waveAnim 1s ease-in-out infinite;
+}
+
+.ai-voice-indicator.speaking .wave:nth-child(1) { animation-delay: 0.0s; }
+.ai-voice-indicator.speaking .wave:nth-child(2) { animation-delay: 0.15s; }
+.ai-voice-indicator.speaking .wave:nth-child(3) { animation-delay: 0.3s; }
+.ai-voice-indicator.speaking .wave:nth-child(4) { animation-delay: 0.45s; }
+.ai-voice-indicator.speaking .wave:nth-child(5) { animation-delay: 0.6s; }
+
+@keyframes waveAnim {
+    0%, 100% { height: 10px; }
+    50% { height: 35px; box-shadow: 0 0 20px var(--primary-glow); }
+}
+
+.logo {
+    height: 60px;
+    filter: drop-shadow(0 0 10px var(--primary-glow));
+}
+
+.time-display {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+}
+
+.screen-container {
+    flex: 1;
+    position: relative;
+    padding: 1rem 3rem 3rem;
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: translateY(20px);
+}
+
+.screen.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2;
+}
+
+.welcome-card {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), 0 0 20px var(--primary-glow) inset;
+}
+
+.welcome-card h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.9);
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.8));
+    margin-bottom: 0.5rem;
+}
+
+.welcome-card p {
+    font-size: 1.8rem;
+    color: #f0f0f0;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.9);
+    margin-bottom: 3rem;
+}
+
+/* Animated CSS Background replacing Video */
+.css-animated-bg {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.15), var(--bg-color) 60%),
+                conic-gradient(from 0deg, transparent 0deg, rgba(0, 255, 136, 0.05) 90deg, transparent 180deg);
+    z-index: 1;
+    animation: rotateBg 20s linear infinite, pulseBg 5s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes rotateBg {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulseBg {
+    0% { opacity: 0.7; transform: scale(1) rotate(0deg); }
+    100% { opacity: 1; transform: scale(1.1) rotate(0deg); }
+}
+
+.welcome-car-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.6;
+    pointer-events: none;
+    mix-blend-mode: screen;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(15, 15, 26, 0.3) 0%, rgba(15, 15, 26, 0.9) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Ocultar el botón de Play nativo de Safari si bloquea el autoplay */
+video::-webkit-media-controls,
+video::-webkit-media-controls-start-playback-button,
+video::-webkit-media-controls-play-button {
+    display: none !important;
+    -webkit-appearance: none !important;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, var(--text-color), var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #a0a0b0;
+    margin-bottom: 2rem;
+}
+
+.highlight-text {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* Inputs & Displays */
+.input-display {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.2) inset;
+    border-radius: 12px;
+    padding: 1.5rem;
+    font-size: 2.5rem;
+    letter-spacing: 5px;
+    margin-bottom: 2rem;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.amount-display {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    text-shadow: 0 0 20px var(--primary-glow);
+    margin: 2rem 0;
+}
+
+/* Keypad & Grids */
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto 2rem;
+}
+
+.small-keypad {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 500px;
+}
+
+.keypad button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: white;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.keypad button:active {
+    background: var(--primary-color);
+    color: black;
+    transform: scale(0.95);
+}
+
+.amount-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.amount-grid button {
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 1.5rem;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.amount-grid button:active {
+    background: var(--primary-color);
+    color: black;
+    transform: scale(0.95);
+}
+
+/* Pump Grid */
+.pump-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+.pump-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: white;
+    font-size: 3rem;
+    font-weight: 800;
+    padding: 2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.pump-btn:hover {
+    background: rgba(0, 255, 136, 0.2);
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.pump-btn:active {
+    background: var(--primary-color);
+    color: black;
+    transform: scale(0.95);
+}
+
+/* Cards (Fuel, Payment) */
+.fuel-options, .payment-options {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.fuel-card, .payment-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    width: 300px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.fuel-card:hover, .payment-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.fuel-card.diesel { border-color: rgba(255, 170, 0, 0.5); }
+.fuel-card.diesel:hover { box-shadow: 0 0 30px rgba(255, 170, 0, 0.2); }
+.fuel-card.gasolina { border-color: rgba(0, 238, 255, 0.5); }
+.fuel-card.gasolina:hover { box-shadow: 0 0 30px rgba(0, 238, 255, 0.2); }
+
+.payment-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 30px var(--primary-glow);
+}
+
+.fuel-card .price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #a0a0b0;
+}
+
+.payment-card .icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.invoice-options {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.invoice-options button {
+    width: 200px;
+    height: 80px;
+    font-size: 2rem;
+}
+
+button {
+    outline: none;
+}
+
+.btn-primary, .btn-secondary, .btn-warning {
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: #000;
+    box-shadow: 0 0 20px var(--primary-glow);
+}
+
+.btn-primary:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid var(--glass-border);
+}
+
+.btn-secondary:active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-warning {
+    background: rgba(255, 51, 102, 0.2);
+    color: var(--warning-color);
+    border: 1px solid var(--warning-color);
+}
+
+.btn-warning:active {
+    background: var(--warning-color);
+    color: white;
+}
+
+/* Icons */
+.alert-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.success-icon {
+    font-size: 6rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 30px var(--primary-glow);
+}
+
+.receipt-info {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    font-size: 1.1rem;
+    text-align: left;
+    display: inline-block;
+    min-width: 300px;
+}
+
+.receipt-info div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px dashed rgba(255,255,255,0.2);
+    padding-bottom: 0.5rem;
+}
+
+.receipt-info div:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Subtle Welcome UI (Unobtrusive) */
+.welcome-top {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    pointer-events: none;
+}
+
+.welcome-bottom {
+    position: absolute;
+    bottom: 22%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.welcome-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 4px 20px rgba(0,0,0, 0.9);
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.welcome-subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 2px 15px rgba(0,0,0, 0.8);
+    margin: 0;
+}
+
+.welcome-btn {
+    margin-top: 15px;
+    padding: 12px 35px;
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+    box-shadow: 0 4px 25px rgba(0,0,0, 0.5);
+    animation: pulseGlow 2.5s infinite;
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(0, 255, 136, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
+}
+
+/* 📱 Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+    .app-container {
+        max-height: none;
+        height: 100dvh;
+        overflow-y: auto;
+    }
+
+    .main-header {
+        padding: 1rem;
+    }
+
+    .logo {
+        height: 40px;
+    }
+
+    .time-display {
+        font-size: 1.2rem;
+    }
+
+    .screen {
+        padding: 0 1rem;
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+
+    .screen-container {
+        padding: 0 1rem 1rem;
+    }
+
+    .glass-card {
+        padding: 1.5rem;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; margin-bottom: 1.5rem; }
+    h3 { font-size: 1.2rem; }
+    p { font-size: 1rem; margin-bottom: 1.5rem; }
+    
+    .highlight-text { font-size: 1.3rem; }
+
+    .welcome-title { font-size: 1.8rem; }
+    .welcome-subtitle { font-size: 1rem; }
+    .welcome-btn { font-size: 1rem; padding: 10px 25px; }
+
+    .fuel-options, .payment-options {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .fuel-card, .payment-card {
+        width: 100%;
+        max-width: 300px;
+        padding: 1.5rem;
+    }
+
+    .pump-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .pump-btn {
+        font-size: 2rem;
+        padding: 1rem;
+    }
+
+    .input-display {
+        font-size: 1.8rem;
+        letter-spacing: 3px;
+        min-height: 60px;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .amount-display {
+        font-size: 2.5rem;
+        margin: 1.5rem 0;
+    }
+
+    .amount-grid {
+        gap: 1rem;
+    }
+
+    .amount-grid button {
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+
+    .keypad, .small-keypad {
+        max-width: 100%;
+        gap: 0.5rem;
+    }
+
+    #keypad-letters {
+        grid-template-columns: repeat(5, 1fr) !important;
+    }
+
+    .keypad button {
+        font-size: 1.2rem;
+        padding: 0.8rem;
+    }
+
+    .actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .actions button {
+        width: 100%;
+    }
+
+    .invoice-options {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        margin-top: 1.5rem;
+    }
+
+    .invoice-options button {
+        width: 100%;
+        max-width: 300px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .alert-icon { font-size: 3rem; }
+    .success-icon { font-size: 4rem; }
+    
+    .receipt-info {
+        min-width: 100%;
+        font-size: 1rem;
+    }
+}

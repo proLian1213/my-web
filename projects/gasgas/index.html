@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GasGas - Surtidor de Pago</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Logo Header (siempre visible o arriba) -->
+        <header class="main-header">
+            <img src="logo.png" alt="GasGas Logo" class="logo">
+            <div class="ai-voice-indicator" id="ai-voice-indicator" title="Asistente de Voz">
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+            </div>
+            <div class="time-display" id="time-display">00:00</div>
+        </header>
+
+        <!-- Screens -->
+        <main class="screen-container">
+            <!-- Screen 1: Welcome -->
+            <section id="screen-welcome" class="screen active" onclick="app.showScreen('screen-user-type')" style="cursor: pointer; overflow: hidden;">
+                <div class="css-animated-bg"></div>
+                <img src="gasgas_car.png" class="welcome-car-img" alt="Coche GasGas">
+                <div class="video-overlay"></div>
+                <div class="welcome-top">
+                    <h1 class="welcome-title">BIENVENIDO A GASGAS</h1>
+                    <p class="welcome-subtitle">La energía del futuro, hoy.</p>
+                </div>
+                <div class="welcome-bottom">
+                    <div class="welcome-btn">TOCAR PARA EMPEZAR</div>
+                </div>
+            </section>
+
+            <!-- Screen 1.5: User Type Selection -->
+            <section id="screen-user-type" class="screen">
+                <div class="glass-card">
+                    <h2>¿Es usted usuario registrado?</h2>
+                    <div class="user-type-options payment-options">
+                        <div class="payment-card" onclick="app.showScreen('screen-license')">
+                            <span class="icon">👤</span>
+                            <h3>Soy Usuario Registrado</h3>
+                        </div>
+                        <div class="payment-card" onclick="app.skipLicense()">
+                            <span class="icon">🚗</span>
+                            <h3>Continuar sin registro</h3>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="btn-secondary" onclick="app.showScreen('screen-welcome')">Atrás</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Screen 2: License Plate -->
+            <section id="screen-license" class="screen">
+                <div class="glass-card">
+                    <h2>Introduzca su matrícula</h2>
+                    <p>Para usuarios registrados</p>
+                    <div class="input-display" id="license-display">_ _ _ _ _ _ _</div>
+                    <div class="keypad" id="keypad-numbers">
+                        <button onclick="app.typeLicense('1')">1</button>
+                        <button onclick="app.typeLicense('2')">2</button>
+                        <button onclick="app.typeLicense('3')">3</button>
+                        <button onclick="app.typeLicense('4')">4</button>
+                        <button onclick="app.typeLicense('5')">5</button>
+                        <button onclick="app.typeLicense('6')">6</button>
+                        <button onclick="app.typeLicense('7')">7</button>
+                        <button onclick="app.typeLicense('8')">8</button>
+                        <button onclick="app.typeLicense('9')">9</button>
+                        <button onclick="app.deleteLicense()" class="btn-warning">DEL</button>
+                        <button onclick="app.typeLicense('0')">0</button>
+                        <button onclick="app.toggleKeypad()" class="btn-secondary" style="font-size: 1.2rem; padding: 0.5rem;">ABC</button>
+                    </div>
+                    <div class="keypad" id="keypad-letters" style="display: none; grid-template-columns: repeat(6, 1fr); max-width: 600px;">
+                        <button onclick="app.typeLicense('A')">A</button>
+                        <button onclick="app.typeLicense('B')">B</button>
+                        <button onclick="app.typeLicense('C')">C</button>
+                        <button onclick="app.typeLicense('D')">D</button>
+                        <button onclick="app.typeLicense('E')">E</button>
+                        <button onclick="app.typeLicense('F')">F</button>
+                        <button onclick="app.typeLicense('G')">G</button>
+                        <button onclick="app.typeLicense('H')">H</button>
+                        <button onclick="app.typeLicense('I')">I</button>
+                        <button onclick="app.typeLicense('J')">J</button>
+                        <button onclick="app.typeLicense('K')">K</button>
+                        <button onclick="app.typeLicense('L')">L</button>
+                        <button onclick="app.typeLicense('M')">M</button>
+                        <button onclick="app.typeLicense('N')">N</button>
+                        <button onclick="app.typeLicense('O')">O</button>
+                        <button onclick="app.typeLicense('P')">P</button>
+                        <button onclick="app.typeLicense('Q')">Q</button>
+                        <button onclick="app.typeLicense('R')">R</button>
+                        <button onclick="app.typeLicense('S')">S</button>
+                        <button onclick="app.typeLicense('T')">T</button>
+                        <button onclick="app.typeLicense('U')">U</button>
+                        <button onclick="app.typeLicense('V')">V</button>
+                        <button onclick="app.typeLicense('W')">W</button>
+                        <button onclick="app.typeLicense('X')">X</button>
+                        <button onclick="app.typeLicense('Y')">Y</button>
+                        <button onclick="app.typeLicense('Z')">Z</button>
+                        <button onclick="app.deleteLicense()" class="btn-warning" style="grid-column: span 2;">DEL</button>
+                        <button onclick="app.toggleKeypad()" class="btn-secondary" style="grid-column: span 2; font-size: 1.2rem;">123</button>
+                    </div>
+                    <div class="actions">
+                        <button class="btn-secondary" onclick="app.showScreen('screen-user-type')">Atrás</button>
+                        <button class="btn-primary" onclick="app.submitLicense()">Continuar</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Screen 3: Fuel Type -->
+            <section id="screen-fuel" class="screen">
+                <div class="glass-card">
+                    <h2>Seleccione el Combustible</h2>
+                    <div class="fuel-options">
+                        <div class="fuel-card diesel" onclick="app.selectFuel('Diesel')">
+                            <h3>Diesel</h3>
+                            <div class="price">1.54 €/L</div>
+                        </div>
+                        <div class="fuel-card gasolina" onclick="app.selectFuel('Gasolina 95')">
+                            <h3>Gasolina 95</h3>
+                            <div class="price">1.68 €/L</div>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="btn-secondary" onclick="app.goBackFromFuel()">Atrás</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Screen 3.5: Select Pump -->
+            <section id="screen-pump" class="screen">
+                <div class="glass-card">
+                    <h2>Seleccione el Surtidor</h2>
+                    <div class="pump-grid">
+                        <button class="pump-btn" onclick="app.selectPump(1)">1</button>
+                        <button class="pump-btn" onclick="app.selectPump(2)">2</button>
+                        <button class="pump-btn" onclick="app.selectPump(3)">3</button>
+                        <button class="pump-btn" onclick="app.selectPump(4)">4</button>
+                        <button class="pump-btn" onclick="app.selectPump(5)">5</button>
+                        <button class="pump-btn" onclick="app.selectPump(6)">6</button>
+                    </div>
+                    <div class="actions">
+                        <button class="btn-secondary" onclick="app.showScreen('screen-fuel')">Atrás</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Screen 4: Payment Method -->
+            <section id="screen-payment-method" class="screen">
+                <div class="glass-card">
+                    <h2>¿Cómo desea realizar el pago?</h2>
+                    <div class="payment-options">
+                        <div class="payment-card" onclick="app.selectPaymentMethod('Efectivo')">
+                            <span class="icon">💵</span>
+                            <h3>Efectivo</h3>
+                        </div>
+                        <div class="payment-card" onclick="app.selectPaymentMethod('Tarjeta')">
+                            <span class="icon">💳</span>
+                            <h3>Tarjeta</h3>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="btn-secondary" onclick="app.showScreen('screen-pump')">Atrás</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Screen 5A: Cash Payment -->
+            <section id="screen-cash" class="screen">
+                <div class="glass-card">
+                    <div class="alert-icon">⚠️</div>
+                    <h2>Pago en Efectivo</h2>
+                    <p class="highlight-text">Indique el importe a introducir.<br>La máquina no devuelve cambio.</p>
+                    <div class="amount-display dynamic-amount" id="cash-amount-display">0.00 €</div>
+                    <div class="amount-grid">
+                        <button onclick="app.addAmount(5)">+ 5 €</button>
+                        <button onclick="app.addAmount(10)">+ 10 €</button>
+                        <button onclick="app.addAmount(20)">+ 20 €</button>
+                        <button onclick="app.addAmount(50)">+ 50 €</button>
+                    </div>
+                    <div class="actions">
+                        <button class="btn-secondary" onclick="app.showScreen('screen-payment-method')">Atrás</button>
+                        <button class="btn-warning" onclick="app.resetAmount()">Borrar</button>
+                        <button class="btn-primary" onclick="app.processCashPayment()">Continuar</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Screen 5B: Card Payment -->
+            <section id="screen-card" class="screen">
+                <div class="glass-card">
+                    <h2>Seleccione el Importe</h2>
+                    <div class="amount-display dynamic-amount" id="total-amount-display">0.00 €</div>
+                    <p class="subtitle">Puede sumar varias cantidades</p>
+                    <div class="amount-grid">
+                        <button onclick="app.addAmount(5)">+ 5 €</button>
+                        <button onclick="app.addAmount(10)">+ 10 €</button>
+                        <button onclick="app.addAmount(20)">+ 20 €</button>
+                        <button onclick="app.addAmount(50)">+ 50 €</button>
+                    </div>
+                    <div class="actions">
+                        <button class="btn-secondary" onclick="app.showScreen('screen-payment-method')">Atrás</button>
+                        <button class="btn-warning" onclick="app.resetAmount()">Borrar</button>
+                        <button class="btn-primary" onclick="app.processCardPayment()">Pagar</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Screen 6: Invoice Ask -->
+            <section id="screen-invoice-ask" class="screen">
+                <div class="glass-card">
+                    <h2>¿Desea factura?</h2>
+                    <div class="invoice-options">
+                        <button class="btn-primary" onclick="app.wantsInvoice(true)">Sí</button>
+                        <button class="btn-secondary" onclick="app.wantsInvoice(false)">No</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Screen 7: Invoice Details (DNI) -->
+            <section id="screen-invoice-details" class="screen">
+                <div class="glass-card modal-like">
+                    <h2>Datos de Facturación</h2>
+                    <p>Introduzca su DNI / NIE / CIF</p>
+                    <div class="input-display" id="dni-display">_ _ _ _ _ _ _ _ _</div>
+                    <div class="keypad small-keypad">
+                        <button onclick="app.typeDNI('1')">1</button>
+                        <button onclick="app.typeDNI('2')">2</button>
+                        <button onclick="app.typeDNI('3')">3</button>
+                        <button onclick="app.typeDNI('4')">4</button>
+                        <button onclick="app.typeDNI('5')">5</button>
+                        <button onclick="app.typeDNI('6')">6</button>
+                        <button onclick="app.typeDNI('7')">7</button>
+                        <button onclick="app.typeDNI('8')">8</button>
+                        <button onclick="app.typeDNI('9')">9</button>
+                        <button onclick="app.typeDNI('X')">X</button>
+                        <button onclick="app.typeDNI('0')">0</button>
+                        <button onclick="app.typeDNI('Y')">Y</button>
+                        <button onclick="app.typeDNI('A')">A</button>
+                        <button onclick="app.typeDNI('B')">B</button>
+                        <button onclick="app.typeDNI('C')">C</button>
+                        <button onclick="app.deleteDNI()" class="btn-warning">DEL</button>
+                    </div>
+                    <div class="actions">
+                        <button class="btn-secondary" onclick="app.showScreen('screen-invoice-ask')">Omitir</button>
+                        <button class="btn-primary" onclick="app.submitDNI()">Aceptar</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Screen 8: Success -->
+            <section id="screen-success" class="screen">
+                <div class="glass-card success-card">
+                    <div class="success-icon">✅</div>
+                    <h2>Operación Completada</h2>
+                    <p class="highlight-text">PUEDE SUMINISTRARSE</p>
+                    <div class="receipt-info" id="receipt-info"></div>
+                    <p class="thank-you">Gracias por confiar en GasGas.<br>¡Buen viaje!</p>
+                    <button class="btn-primary" onclick="app.resetApp()">Finalizar</button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

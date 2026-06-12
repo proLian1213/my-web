@@ -42,6 +42,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Handle CTA button in hero section
+    const ctaMain = document.querySelector('.cta-main');
+    if (ctaMain) {
+        ctaMain.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove active class from all links
+            navLinks.forEach(l => l.classList.remove('active'));
+            // Add active class to Contact link
+            const contactLink = document.querySelector('a[href="#contact"]');
+            if (contactLink) contactLink.classList.add('active');
+
+            // Hide all sections
+            sections.forEach(sec => {
+                sec.classList.remove('active-section');
+            });
+
+            // Show contact section
+            const targetSection = document.getElementById('contact');
+            if (targetSection) {
+                targetSection.classList.add('active-section');
+            }
+        });
+    }
+
     // Handle 'Más info' buttons
     const infoBtns = document.querySelectorAll('.info-btn');
     infoBtns.forEach(btn => {
@@ -94,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalIframe = document.getElementById('modal-iframe');
     const modalTitle = document.getElementById('modal-title');
     const modalDescription = document.getElementById('modal-description');
+    const modalExternalLink = document.getElementById('modal-external-link');
     
     // Aquí puedes definir los datos de tus proyectos
     const projectData = {
@@ -101,8 +127,12 @@ document.addEventListener('DOMContentLoaded', () => {
             url: 'projects/viajetour/index.html',
             title: 'Agencia de Viajes "ViajeTour"',
             description: 'Desarrollo de una web interactiva para una agencia de viajes. El proyecto incluye menús desplegables tipo acordeón, animaciones 3D, un diseño moderno y responsive, y una paleta de colores vibrante.'
+        },
+        '2': {
+            url: 'projects/gasgas/index.html',
+            title: 'GasGas Payment Kiosk',
+            description: 'Interfaz interactiva diseñada para un kiosco de pagos de gasolinera. Desarrollada con un diseño moderno y centrado en la experiencia del usuario (UX) para facilitar el proceso de pago e interacción.'
         }
-        // Puedes añadir '2', '3', etc.
     };
 
     const projectCards = document.querySelectorAll('.project-card');
@@ -118,11 +148,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     modalIframe.style.display = 'block';
                     modalImage.style.display = 'none';
                     modalImage.src = '';
+                    if (modalExternalLink) {
+                        modalExternalLink.href = data.url;
+                        modalExternalLink.style.display = 'inline-block';
+                    }
                 } else if (data.image) {
                     modalImage.src = data.image;
                     modalImage.style.display = 'block';
                     modalIframe.style.display = 'none';
                     modalIframe.src = '';
+                    if (modalExternalLink) {
+                        modalExternalLink.style.display = 'none';
+                    }
                 }
 
                 modalTitle.textContent = data.title;
