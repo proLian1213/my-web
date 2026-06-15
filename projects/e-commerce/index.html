@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200">
+    <title>Lumina Cosmetics</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="#"><img src="assets/logo.png" alt="Lumina Cosmetics"></a>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Buscar productos...">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+                <div id="searchResults" class="search-results-dropdown"></div>
+            </div>
+            
+            <div class="user-actions">
+                <button id="userBtn" class="icon-btn"><i class="far fa-user"></i> <span id="userNameDisplay">Perfil</span></button>
+                <button id="cartBtn" class="icon-btn"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></button>
+            </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="main-nav">
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a href="#">Básicos de verano <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Solares</a>
+                        <a href="#">Aftersun</a>
+                        <a href="#">Cremas ligeras</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Marcas <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Lumina Exclusives</a>
+                        <a href="#">Aura</a>
+                        <a href="#">Velvet</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Perfumes <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Para Mujer</a>
+                        <a href="#">Para Hombre</a>
+                        <a href="#">Unisex</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Maquillaje <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Rostro</a>
+                        <a href="#">Ojos</a>
+                        <a href="#">Labios</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Cosméticos <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Cuerpo</a>
+                        <a href="#">Cabello</a>
+                        <a href="#">Accesorios</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Faciales <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Limpieza</a>
+                        <a href="#">Hidratación</a>
+                        <a href="#">Anti-edad</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Hombre <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Afeitado</a>
+                        <a href="#">Cuidado Facial</a>
+                        <a href="#">Cuidado Corporal</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Bebés y niños <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Geles y Champús</a>
+                        <a href="#">Lociones</a>
+                        <a href="#">Colonias</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Regalos <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Packs Mujer</a>
+                        <a href="#">Packs Hombre</a>
+                        <a href="#">Tarjetas Regalo</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" style="background-image: url('assets/hero.png');">
+            <div class="hero-content">
+                <h1>Descubre tu brillo interior</h1>
+                <p>La colección de lujo para tu cuidado personal.</p>
+                <button class="cta-button">Ver Novedades</button>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="products-section">
+            <h2>Novedades y Ofertas</h2>
+            <div class="products-grid">
+                
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/perfume.png" alt="Perfume Essence">
+                        <span class="badge new">Nuevo</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Lumina Essence Eau de Parfum</h3>
+                        <p class="category">Perfumes</p>
+                        <div class="price">
+                            <span class="current-price">120 Ⱡ</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-id="1" data-name="Lumina Essence" data-price="120" data-img="assets/perfume.png">Añadir a la cesta</button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/sunscreen.png" alt="Sunscreen SPF 50">
+                        <span class="badge sale">Oferta</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Aura Sun Shield SPF 50</h3>
+                        <p class="category">Básicos de verano</p>
+                        <div class="price">
+                            <span class="old-price">45 Ⱡ</span>
+                            <span class="current-price">35 Ⱡ</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-id="2" data-name="Aura Sun Shield" data-price="35" data-img="assets/sunscreen.png">Añadir a la cesta</button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/gift_set.png" alt="Pack Regalo Skincare">
+                    </div>
+                    <div class="product-info">
+                        <h3>Velvet Hydration Gift Set</h3>
+                        <p class="category">Regalos</p>
+                        <div class="price">
+                            <span class="current-price">150 Ⱡ</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-id="3" data-name="Velvet Hydration Set" data-price="150" data-img="assets/gift_set.png">Añadir a la cesta</button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/mens_skincare.png" alt="Cuidado Facial Hombre">
+                        <span class="badge new">Nuevo</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Lumina Men's Fortify Serum</h3>
+                        <p class="category">Hombre</p>
+                        <div class="price">
+                            <span class="current-price">85 Ⱡ</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-id="4" data-name="Men's Fortify Serum" data-price="85" data-img="assets/mens_skincare.png">Añadir a la cesta</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Perfume Collection -->
+        <section class="products-section">
+            <h2>Colección Exclusiva de Perfumes</h2>
+            
+            <h3 class="collection-title">Para Mujer</h3>
+            <div class="products-grid">
+                <!-- W1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/perfume_w1.png" alt="Floral Elegance">
+                    </div>
+                    <div class="product-info">
+                        <h3>Floral Elegance</h3>
+                        <p class="category">Perfumes Mujer</p>
+                        <div class="price">
+                            <span class="current-price">135 Ⱡ</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-id="10" data-name="Floral Elegance" data-price="135" data-img="assets/perfume_w1.png">Añadir a la cesta</button>
+                    </div>
+                </div>
+                <!-- W2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/perfume_w2.png" alt="Golden Aura">
+                    </div>
+                    <div class="product-info">
+                        <h3>Golden Aura</h3>
+                        <p class="category">Perfumes Mujer</p>
+                        <div class="price">
+                            <span class="current-price">160 Ⱡ</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-id="11" data-name="Golden Aura" data-price="160" data-img="assets/perfume_w2.png">Añadir a la cesta</button>
+                    </div>
+                </div>
+                <!-- W3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/perfume_w3.png" alt="Ocean Mist">
+                    </div>
+                    <div class="product-info">
+                        <h3>Ocean Mist</h3>
+                        <p class="category">Perfumes Mujer</p>
+                        <div class="price">
+                            <span class="current-price">115 Ⱡ</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-id="12" data-name="Ocean Mist" data-price="115" data-img="assets/perfume_w3.png">Añadir a la cesta</button>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="collection-title" style="margin-top: 4rem;">Para Hombre</h3>
+            <div class="products-grid">
+                <!-- M1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/perfume_m1.png" alt="Midnight Wood">
+                    </div>
+                    <div class="product-info">
+                        <h3>Midnight Wood</h3>
+                        <p class="category">Perfumes Hombre</p>
+                        <div class="price">
+                            <span class="current-price">140 Ⱡ</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-id="13" data-name="Midnight Wood" data-price="140" data-img="assets/perfume_m1.png">Añadir a la cesta</button>
+                    </div>
+                </div>
+                <!-- M2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/perfume_m2.png" alt="Aqua Sport">
+                    </div>
+                    <div class="product-info">
+                        <h3>Aqua Sport</h3>
+                        <p class="category">Perfumes Hombre</p>
+                        <div class="price">
+                            <span class="current-price">95 Ⱡ</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-id="14" data-name="Aqua Sport" data-price="95" data-img="assets/perfume_m2.png">Añadir a la cesta</button>
+                    </div>
+                </div>
+                <!-- M3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/perfume_m3.png" alt="Silver Prestige">
+                    </div>
+                    <div class="product-info">
+                        <h3>Silver Prestige</h3>
+                        <p class="category">Perfumes Hombre</p>
+                        <div class="price">
+                            <span class="current-price">180 Ⱡ</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-id="15" data-name="Silver Prestige" data-price="180" data-img="assets/perfume_m3.png">Añadir a la cesta</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Baby Collection -->
+        <section class="products-section">
+            <h2>Cuidado para Bebés y Niños</h2>
+            <div class="products-grid">
+                <!-- B1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/baby_p1.png" alt="Gel y Champú Suave">
+                    </div>
+                    <div class="product-info">
+                        <h3>Gel y Champú Suave</h3>
+                        <p class="category">Bebés y niños</p>
+                        <div class="price">
+                            <span class="current-price">25 Ⱡ</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-id="16" data-name="Gel y Champú Suave" data-price="25" data-img="assets/baby_p1.png">Añadir a la cesta</button>
+                    </div>
+                </div>
+                <!-- B2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/baby_p2.png" alt="Crema Hidratante Calmante">
+                    </div>
+                    <div class="product-info">
+                        <h3>Crema Hidratante Calmante</h3>
+                        <p class="category">Bebés y niños</p>
+                        <div class="price">
+                            <span class="current-price">32 Ⱡ</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-id="17" data-name="Crema Hidratante Calmante" data-price="32" data-img="assets/baby_p2.png">Añadir a la cesta</button>
+                    </div>
+                </div>
+                <!-- B3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="assets/baby_p3.png" alt="Colonia Dulces Sueños">
+                    </div>
+                    <div class="product-info">
+                        <h3>Colonia Dulces Sueños</h3>
+                        <p class="category">Bebés y niños</p>
+                        <div class="price">
+                            <span class="current-price">40 Ⱡ</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-id="18" data-name="Colonia Dulces Sueños" data-price="40" data-img="assets/baby_p3.png">Añadir a la cesta</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lumina Exclusive Collection (Slider) -->
+        <section class="products-section">
+            <h2>Lumina Exclusive</h2>
+            <div class="full-width-slider">
+                <!-- LE 1 -->
+                <div class="full-slide">
+                    <img src="assets/le_1.png" alt="Premium Anti-aging Serum">
+                    <div class="slide-info">
+                        <div>
+                            <h3>Premium Anti-aging Serum</h3>
+                            <p class="category">Lumina Exclusive</p>
+                        </div>
+                        <div class="slide-action">
+                            <span class="current-price">250 Ⱡ</span>
+                            <button class="add-to-cart-btn" data-id="19" data-name="Premium Anti-aging Serum" data-price="250" data-img="assets/le_1.png">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- LE 2 -->
+                <div class="full-slide">
+                    <img src="assets/le_2.png" alt="Ultimate Hydration Cream">
+                    <div class="slide-info">
+                        <div>
+                            <h3>Ultimate Hydration Cream</h3>
+                            <p class="category">Lumina Exclusive</p>
+                        </div>
+                        <div class="slide-action">
+                            <span class="current-price">220 Ⱡ</span>
+                            <button class="add-to-cart-btn" data-id="20" data-name="Ultimate Hydration Cream" data-price="220" data-img="assets/le_2.png">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- LE 3 (Placeholder) -->
+                <div class="full-slide">
+                    <img src="assets/perfume.png" alt="Illuminating Eye Contour">
+                    <div class="slide-info">
+                        <div>
+                            <h3>Illuminating Eye Contour</h3>
+                            <p class="category">Lumina Exclusive</p>
+                        </div>
+                        <div class="slide-action">
+                            <span class="current-price">180 Ⱡ</span>
+                            <button class="add-to-cart-btn" data-id="21" data-name="Illuminating Eye Contour" data-price="180" data-img="assets/perfume.png">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- LE 4 (Placeholder) -->
+                <div class="full-slide">
+                    <img src="assets/gift_set.png" alt="Night Repair Elixir">
+                    <div class="slide-info">
+                        <div>
+                            <h3>Night Repair Elixir</h3>
+                            <p class="category">Lumina Exclusive</p>
+                        </div>
+                        <div class="slide-action">
+                            <span class="current-price">290 Ⱡ</span>
+                            <button class="add-to-cart-btn" data-id="22" data-name="Night Repair Elixir" data-price="290" data-img="assets/gift_set.png">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- LE 5 (Placeholder) -->
+                <div class="full-slide">
+                    <img src="assets/mens_skincare.png" alt="Radiance Face Mask">
+                    <div class="slide-info">
+                        <div>
+                            <h3>Radiance Face Mask</h3>
+                            <p class="category">Lumina Exclusive</p>
+                        </div>
+                        <div class="slide-action">
+                            <span class="current-price">150 Ⱡ</span>
+                            <button class="add-to-cart-btn" data-id="23" data-name="Radiance Face Mask" data-price="150" data-img="assets/mens_skincare.png">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/logo.png" alt="Lumina Cosmetics">
+            </div>
+            <div class="footer-links">
+                <a href="#">Sobre nosotros</a>
+                <a href="#">Contacto</a>
+                <a href="#">Política de privacidad</a>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2026 Lumina Cosmetics. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Modals -->
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content glass-effect">
+            <span class="close-btn auth-close">&times;</span>
+            <div class="auth-forms">
+                <div id="loginFormContainer">
+                    <h2>Iniciar Sesión</h2>
+                    <form id="loginForm">
+                        <input type="email" id="loginEmail" placeholder="Email" required>
+                        <input type="password" id="loginPassword" placeholder="Contraseña" required>
+                        <button type="submit" class="primary-btn">Entrar</button>
+                        <p>¿No tienes cuenta? <a href="#" id="showRegister">Regístrate</a></p>
+                    </form>
+                </div>
+                <div id="registerFormContainer" style="display: none;">
+                    <h2>Registro</h2>
+                    <form id="registerForm">
+                        <input type="text" id="regName" placeholder="Nombre completo" required>
+                        <input type="email" id="regEmail" placeholder="Email" required>
+                        <input type="password" id="regPassword" placeholder="Contraseña" required>
+                        <button type="submit" class="primary-btn">Crear cuenta</button>
+                        <p>¿Ya tienes cuenta? <a href="#" id="showLogin">Inicia sesión</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart / Checkout Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content glass-effect cart-content">
+            <span class="close-btn cart-close">&times;</span>
+            <h2>Tu Cesta</h2>
+            
+            <div id="cartItems" class="cart-items">
+                <!-- Items will be injected here via JS -->
+            </div>
+            
+            <div class="cart-summary">
+                <div class="total-row">
+                    <span>Total:</span>
+                    <span id="cartTotal">0 Ⱡ</span>
+                </div>
+                
+                <div class="checkout-section">
+                    <h3>Método de pago</h3>
+                    <div class="payment-methods">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="tarjeta" checked>
+                            <i class="far fa-credit-card"></i> Tarjeta
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="bizum">
+                            <i class="fas fa-mobile-alt"></i> Bizum
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="paypal">
+                            <i class="fab fa-paypal"></i> PayPal
+                        </label>
+                    </div>
+                    <button id="checkoutBtn" class="primary-btn w-100">Finalizar Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Banner -->
+    <div id="cookieBanner" class="cookie-banner glass-effect">
+        <div class="cookie-content">
+            <p>Utilizamos cookies propias y de terceros para mejorar nuestros servicios y mostrarle publicidad relacionada con sus preferencias mediante el análisis de sus hábitos de navegación. Si continúa navegando, consideramos que acepta su uso.</p>
+            <div class="cookie-buttons">
+                <button id="acceptCookies" class="primary-btn">Aceptar</button>
+                <button id="rejectCookies" class="icon-btn" style="text-decoration: underline;">Rechazar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
