@@ -148,6 +148,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = projectData[projectId];
             
             if(data) {
+                if (window.innerWidth <= 768 && data.url) {
+                    window.location.href = data.url;
+                    return;
+                }
+
                 if (data.url) {
                     modalIframe.src = data.url;
                     modalIframe.style.display = 'block';
