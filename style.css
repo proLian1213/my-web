@@ -333,14 +333,14 @@ h1 {
 }
 
 .service-card h3 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin-bottom: 1rem;
     color: var(--bright-white);
     letter-spacing: 1px;
 }
 
 .service-card p {
-    font-size: 1rem;
+    font-size: 1.15rem;
     line-height: 1.6;
     color: #b0c4de;
     font-weight: 300;
@@ -629,7 +629,7 @@ h1 {
 
 .project-image-container {
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 16 / 9;
     border-radius: 8px;
     overflow: hidden;
     position: relative;
