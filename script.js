@@ -132,6 +132,11 @@ document.addEventListener('DOMContentLoaded', () => {
             url: 'projects/gasgas/index.html',
             title: 'GasGas Payment Kiosk',
             description: 'Interfaz interactiva diseñada para un kiosco de pagos de gasolinera. Desarrollada con un diseño moderno y centrado en la experiencia del usuario (UX) para facilitar el proceso de pago e interacción.'
+        },
+        '3': {
+            url: 'projects/e-commerce/index.html',
+            title: 'Lumina Cosmetics E-Commerce',
+            description: 'Desarrollo de una tienda online de cosméticos con un diseño elegante, moderno y responsivo. Incluye catálogo de productos, carrito de compras interactivo y un layout optimizado para conversiones.'
         }
     };
 
