@@ -759,9 +759,17 @@ footer {
     }
 
     .nav-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 0.5rem;
+        gap: 1.5rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+    }
+    .nav-links::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
     }
 
     .hero-content h1 {
