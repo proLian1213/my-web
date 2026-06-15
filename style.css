@@ -611,17 +611,17 @@ h1 {
 
     /* Mejoras de legibilidad en móvil */
     .service-card h3 {
-        font-size: 2rem !important;
+        font-size: 2.2rem !important;
     }
 
     .service-card p, .extra-info p {
-        font-size: 1.4rem !important;
+        font-size: 1.5rem !important;
         line-height: 1.5;
     }
 
     .project-image-container {
-        height: 200px !important;
-        aspect-ratio: auto !important;
+        max-height: 150px !important;
+        aspect-ratio: 16/9 !important;
         margin-bottom: 1rem;
     }
 }
