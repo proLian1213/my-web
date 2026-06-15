@@ -345,4 +345,38 @@ document.addEventListener('DOMContentLoaded', () => {
             performSearch();
         });
     }
+
+    // --- Slider Dots Sync ---
+    const slider = document.querySelector('.full-width-slider');
+    const dots = document.querySelectorAll('.slider-dots .dot');
+
+    if (slider && dots.length > 0) {
+        // Sync dots on scroll
+        slider.addEventListener('scroll', () => {
+            const slideWidth = slider.clientWidth;
+            const scrollLeft = slider.scrollLeft;
+            // Calculate current index based on scroll position (round to nearest slide)
+            const index = Math.round(scrollLeft / slideWidth);
+            
+            // Update active dot
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        });
+
+        // Click on dot to scroll to slide
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                const slideWidth = slider.clientWidth;
+                slider.scrollTo({
+                    left: slideWidth * index,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    }
 });
