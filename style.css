@@ -333,14 +333,14 @@ h1 {
 }
 
 .service-card h3 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     margin-bottom: 1rem;
     color: var(--bright-white);
     letter-spacing: 1px;
 }
 
 .service-card p {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     line-height: 1.6;
     color: #b0c4de;
     font-weight: 300;
@@ -607,6 +607,22 @@ h1 {
 
     .contact-card {
         padding: 2rem;
+    }
+
+    /* Mejoras de legibilidad en móvil */
+    .service-card h3 {
+        font-size: 2rem !important;
+    }
+
+    .service-card p, .extra-info p {
+        font-size: 1.4rem !important;
+        line-height: 1.5;
+    }
+
+    .project-image-container {
+        height: 200px !important;
+        aspect-ratio: auto !important;
+        margin-bottom: 1rem;
     }
 }
 
